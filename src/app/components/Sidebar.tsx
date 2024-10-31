@@ -45,6 +45,30 @@ const handleSalaryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 }
 
   return (
-    <div></div>
+    <div>
+      <aside>
+        <h2>求人カテゴリー</h2>
+        {categoryOptions.map(category => (
+          <label key={category}>
+            <input 
+              type="checkbox"
+              value={category}
+              onChange={handleCategoryChange}
+              checked={categories.includes(category)} 
+            />
+            {category}
+          </label>
+        ))}
+      </aside>
+      <h2>年収</h2>
+      <select value={salary} onChange={handleSalaryChange}>
+        <option value={0}>全ての年収</option>
+        <option value={300}>300万円以上</option>
+        <option value={5000}>500万円以上</option>
+        <option value={700}>700万円以上</option>
+      </select>
+    </div>
   );
 };
+
+export default Sidebar;
